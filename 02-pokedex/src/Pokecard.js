@@ -4,12 +4,13 @@ import "./Pokecard.css";
 class Pokecard extends Component {
     render(){
         const {name, type, exp, image} = this.props;
+        let id = (image < 10) ? "00" + image : (image < 100) ? "0" + image : image ;
         return(
             <div className="Pokecard">
-                <p className="Pokecard-name">{name}</p>
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${image}.png`} alt=""/>
-                <p>Type: {type}</p>
-                <p>EXP: {exp}</p>
+                <h2 className="Pokecard-name">{name}</h2>
+                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`} alt="" className="Pokecard-image"/>
+                <p className="Pokecard-data">Type: {type}</p>
+                <p className="Pokecard-data">EXP: {exp}</p>
             </div>
         )
     }
